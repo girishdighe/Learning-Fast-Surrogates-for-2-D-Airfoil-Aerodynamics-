@@ -1,0 +1,28 @@
+project_name: Project_1_1
+device: mps
+amp: false
+num_workers: 0
+cache_in_ram: true
+log_interval: 200
+data_root: /Users/grd/Desktop/ML in CFD/Project_1_1/data/airfrans
+normalization:
+  inputs:
+  - sdf
+  - mask
+  - aoa
+  - u_inf
+  targets:
+  - u
+  - v
+  - p
+  method: zscore
+training:
+  epochs: 500
+  batch_size: 8
+  optimizer: adamw
+  learning_rate: 0.001
+  weight_decay: 1.0e-05
+  scheduler: cosine
+output_dir: outputs
+save_interval: 100
+normalizer_path: outputs/norm/airfrans_norm.npz

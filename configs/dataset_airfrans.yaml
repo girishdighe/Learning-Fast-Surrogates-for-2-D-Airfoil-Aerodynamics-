@@ -1,0 +1,35 @@
+# configs/dataset_airfrans.yaml
+splits:
+  train: "splits/train.csv"
+  val:   "splits/val.csv"
+  test:  "splits/test.csv"
+  default: "splits/default.csv"
+  summary: "splits/summary.tsv"
+
+# Exact H5 layout (grid-based, no explicit coords)
+h5_keys:
+  uvp: "outputs/uvp"      # 3xH x W  (u,v,p stacked)
+  sdf: "inputs/sdf"       # H x W
+  valid: "inputs/valid"   # H x W (uint8)
+  aoa: "inputs/aoa"
+  re: "inputs/re"         # optional
+  u_inf: null             # not present; we’ll default to 1.0
+  foil_id: null
+  surface_pts: null
+
+  # not present in this dataset; keep null to skip
+  coords: null
+  X: null
+  Y: null
+  x: null
+  y: null
+
+conditioning:
+  use_aoa: true
+  use_uinf: true
+  use_foil_id: false
+
+grid:
+  # H,W are fixed by the files; we’ll ignore overrides and use file dims.
+  resolution: [256, 128]
+  normalize_domain: true

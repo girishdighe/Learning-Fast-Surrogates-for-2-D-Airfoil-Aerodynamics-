@@ -1,0 +1,16 @@
+numpy>=1.26
+scipy>=1.13
+matplotlib>=3.8
+pandas>=2.2
+pyyaml>=6.0
+pillow>=10.2
+# Torch (CPU/MPS/CUDA selectable automatically)
+torch>=2.2
+# Data utils
+h5py>=3.10
+# Testing & linting
+pytest>=8.0
+black>=24.3.0
+ruff>=0.4.8
+# Progress
+tqdm>=4.66
